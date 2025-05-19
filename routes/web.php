@@ -14,3 +14,5 @@ Route::post('/login',  [LoginController::class, 'login'])->name( 'login.submit')
 
 Route::get('/register',  [RegisterController::class, 'show'])->name( 'register.form');
 Route::post('/register',  [RegisterController::class, 'store'])->name( 'register.submit');
+
+Route::get('/logout', [LoginController::class, 'logout'] )->name('logout');

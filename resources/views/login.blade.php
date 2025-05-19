@@ -107,6 +107,9 @@
             </div>
 
             <button type="submit" class="submit-btn">Login</button>
+            <div class="form-group">
+                Don't have an account?<a href="{{ route('register.form') }}"> Register here</a>
+            </div>
         </form>
     </div>
 

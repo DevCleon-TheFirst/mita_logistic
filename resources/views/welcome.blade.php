@@ -139,7 +139,15 @@
     <a href="#">Home</a>
     <a href="#">Track</a>
     <a href="#">Quote</a>
-    <a href="">Login</a>
+
+    @if(Auth::check())
+      {{-- <a href="{{route("dashboard")}}">Dashboard</a> --}}
+      <a href="{{route("logout")}}">Logout</a>
+    @else
+      <a href="{{route("login.form")}}">Login</a>
+      <a href="{{route("register.form")}}">Get Started</a>
+    @endif
+
   </nav>
 </header>
 

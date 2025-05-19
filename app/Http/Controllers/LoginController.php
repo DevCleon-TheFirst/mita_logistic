@@ -25,7 +25,12 @@ class LoginController extends Controller
 
     }
 
-    public function make(){
-        return view('/');
+    // public function make(){
+    //     return view('/');
+    // }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/login')->with('success','Logout successful');
     }
 }
