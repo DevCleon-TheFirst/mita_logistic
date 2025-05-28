@@ -76,6 +76,21 @@
             border-radius: 5px;
             text-align: center;
         }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -104,6 +119,11 @@
                 @error('password')
                     <div class="error">{{ $message }}</div>
                 @enderror
+            </div>
+
+            {{-- Forgot Password Link --}}
+            <div class="forgot-password">
+                <a href="{{ route('password.request') }}">Forgot your password?</a>
             </div>
 
             <button type="submit" class="submit-btn">Login</button>

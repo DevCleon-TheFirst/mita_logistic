@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Quote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\QuoteTrackingCodeMail;
+use Illuminate\Support\Facades\Mail;
 
 class QuoteController extends Controller
 {
@@ -30,6 +32,9 @@ class QuoteController extends Controller
             'is_complete' => false,
             'loading_status' => 'not_loaded',
         ]);
+        $user = Auth::user();
+        
+        Mail::to($user->email)->send(new QuoteTrackingCodeMail($quote));
 
         return redirect()->back()->with('success', 'Quote created. Your tracking code is: ' . $quote->tracking_code);
     }
